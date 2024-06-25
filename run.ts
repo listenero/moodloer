@@ -7,13 +7,15 @@ import { Builder, By, Key, WebDriver, WebElement, until } from 'selenium-webdriv
 import chrome, { Options } from 'selenium-webdriver/chrome';
 
 //Preencher com os dados de login! 
-let driver: WebDriver;
+const login = 'NUSP';
+const password = 'SENHA';
 const waitPeriod = 10 * 1000; // 10 segundos
+
+let driver: WebDriver;
 const moodleHome = 'https://edisciplinas.usp.br/acessar';
 const baseNotasFile = 'baseNotas.pdf';
 const linkPdf = 'https://edisciplinas.usp.br/mod/resource/view.php?id=5278701';
-const login = 'NUSP';
-const password = 'SENHA';
+
 const map2110 = 'https://edisciplinas.usp.br/course/view.php?id=119412';
 
 async function clearDownloadsFolder() {
