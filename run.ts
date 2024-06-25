@@ -132,7 +132,7 @@ async function checkLoggedIn() {
     }
 }
 
-async function run() {
+async function run() {    
     await clearDownloadsFolder();
     await setupDriver();
     await goToMoodleHome();
@@ -150,6 +150,7 @@ async function run() {
         throw new Error('Arquivo alterado');
     }
     console.log('Parece que não há nenhuma novidade. Aguardando para verificar novamente...');
+    await driver.quit();
 }
 
 async function notasChanged() {
@@ -157,36 +158,42 @@ async function notasChanged() {
     await driver.sleep(10 * 10 * 10 * 10 * 10);
 }
 
-async function work() {
+async function main() {
     let continueWork = true;
     while (continueWork) {
         try {
-            await run();
-            await new Promise(r => setTimeout(r, waitPeriod));
+            await run();            
+            await new Promise(r => setTimeout(r, 800000));
         } catch (e: any) {
             switch (e.message) {
                 case 'Texto do link alterado':
                     console.log('Texto do link alterado');
                     continueWork = false;
                     notasChanged();
+                    await driver.quit();
                     break;
                 case 'Link alterado':
                     console.log('Link alterado');
                     continueWork = false;
                     notasChanged();
+                    await driver.quit();
                     break;
                 case 'Arquivo alterado':
                     console.log('Arquivo alterado');
                     continueWork = false;
                     notasChanged();
+                    await driver.quit();
                     break;
                 default:
                     console.log('Erro desconhecido');
+                    await new Promise(r => setTimeout(r, 2000));
+                    await driver.quit();
                     break;
             }
         }
     }
 }
 
-work();
+
+main();
 
