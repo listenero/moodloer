@@ -163,7 +163,7 @@ async function main() {
     while (continueWork) {
         try {
             await run();            
-            await new Promise(r => setTimeout(r, 800000));
+            await new Promise(r => setTimeout(r, waitPeriod));
         } catch (e: any) {
             switch (e.message) {
                 case 'Texto do link alterado':
