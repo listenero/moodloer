@@ -1,5 +1,7 @@
 # Automação Moodle
 
+**Não me responsabilizo por absolutamente nada. Proceder com o uso significa que você concorda.**
+
 Quando o professor postar a nota, acredito que um dos seguintes ocorrerá:
 
 1. **Mudança na URL do arquivo:** A URL do arquivo de notas (P1) é alterada. Uma exceção com uma mensagem personalizada será lançada.  
