@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Run Current TS File",
+        "runtimeArgs": [
+          "-r",
+          "ts-node/register"
+        ],
+        "program": "${file}"
+      }
+    ]
+  }
+  

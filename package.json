@@ -10,6 +10,14 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/play-sound": "^1.1.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@types/selenium-webdriver": "^4.1.23",
+    "chromedriver": "^126.0.3",
+    "play-sound": "^1.1.6",
+    "selenium-webdriver": "^4.22.0"
   }
 }
