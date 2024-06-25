@@ -14,9 +14,8 @@ const waitPeriod = 10 * 1000; // 10 segundos
 let driver: WebDriver;
 const moodleHome = 'https://edisciplinas.usp.br/acessar';
 const baseNotasFile = 'baseNotas.pdf';
-const linkPdf = 'https://edisciplinas.usp.br/mod/resource/view.php?id=5278701';
-
-const map2110 = 'https://edisciplinas.usp.br/course/view.php?id=119412';
+const linkNotasPdf = 'https://edisciplinas.usp.br/mod/resource/view.php?id=5278701';
+const linkMap2110 = 'https://edisciplinas.usp.br/course/view.php?id=119412';
 
 async function clearDownloadsFolder() {
     const downloadPath = path.resolve(process.cwd(), 'downloads');
@@ -73,7 +72,7 @@ async function clickLogin() {
 
 async function goToMap2110() {
 
-    await driver.get(map2110);
+    await driver.get(linkMap2110);
 }
 
 async function checkIfPageContainsText(text: string) {
@@ -88,7 +87,7 @@ async function getNotasElement2() {
 }
 
 async function checkNotasElement() {
-    const notasElement = await getElementByHref(linkPdf);
+    const notasElement = await getElementByHref(linkNotasPdf);
     const notasText = await notasElement.getText();
     const oldNotasText = 'Notas P1\nArquivo';
     if (notasText !== oldNotasText) {
@@ -145,7 +144,7 @@ async function run() {
     await goToMap2110();
     await checkLoggedIn();
     await checkNotasElement();
-    await downloadFile(linkPdf);
+    await downloadFile(linkNotasPdf);
     const downloadedFile = 'downloads/' + (await getFilesInDownloadsFolder())[0];
     const sameFile = await compareFiles(baseNotasFile, downloadedFile);
     if (!sameFile) {
