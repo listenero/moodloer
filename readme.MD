@@ -15,6 +15,9 @@ Por padrão, um som será reproduzido.
   
 ## Configuração  
 
+Você precisará do NODE instalado.  
+**Pegue aqui: https://nodejs.org/en**
+
 Para configurar e executar este projeto, siga os passos abaixo para clonar, instalar as dependências, compilar e rodar:
 
 1. **Passos:**
