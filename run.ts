@@ -55,7 +55,7 @@ async function clickAcessar(): Promise<void> {
     await driver.executeScript("arguments[0].click();", accessButton);
 }
 
-async function typeLogin(login: string) {
+async function typeLogin() {
     const loginInput = await driver.wait(until.elementLocated(By.id('username')), 10000);
     await loginInput.sendKeys(login);
 }
@@ -138,7 +138,7 @@ async function run() {
     await setupDriver();
     await goToMoodleHome();
     await clickAcessar();
-    await typeLogin(login);
+    await typeLogin();
     await typePassword();
     await clickLogin();
     await goToMap2110();
